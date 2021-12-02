@@ -1,0 +1,36 @@
+var points = []
+
+function setup() {
+  createCanvas(800, 800);
+  background(30);
+  dots()
+}
+
+function draw() {
+  noStroke()
+  fill(225)
+  
+  for(var i = 0; i < points.length; i++){
+    ellipse(points[i].x, points[i].y, 3)
+    
+    var r = map(points [i].x, 0, width, 50, 255)
+    var g = map(points[i].y, 0, height, 50, 255)
+    var b = map(points[i].x, 0, width, 255, 50)
+    
+    fill(r, g, b)
+    }
+}
+
+function dots(){
+  var density = 50
+  var space = width / density
+  for (var x = 0; x < width; x += space) {
+    for (var y = 0; y < height; y += space) {
+         var p = createVector(x, y)
+         points.push(p)
+        }
+    }
+}
+
+
+  
