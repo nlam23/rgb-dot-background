@@ -10,14 +10,16 @@ function draw() {
   noStroke()
   fill(225)
   
+  
   for(var i = 0; i < points.length; i++){
-    ellipse(points[i].x, points[i].y, 3)
+    ellipse(points[i].x, points[i].y, random([2], [10]))
     
-    var r = map(points [i].x, 0, width, 50, 255)
-    var g = map(points[i].y, 0, height, 50, 255)
-    var b = map(points[i].x, 0, width, 255, 50)
-    
-    fill(r, g, b)
+    let fillcolorred = random(0,255)
+      let fillcolorgreen = random(0)
+        let fillcolorblue = random(100,150)
+      //I've made some changes with the color, so hope it works with you!
+
+        fill( fillcolorred,fillcolorgreen,fillcolorblue)
     }
 }
 
@@ -31,6 +33,3 @@ function dots(){
         }
     }
 }
-
-
-  
