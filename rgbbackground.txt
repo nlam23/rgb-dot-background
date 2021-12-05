@@ -1,24 +1,48 @@
+let xpos = 80;
+let ypos = 90;
+let xdirection, ydirection
 var points = []
 
 function setup() {
   createCanvas(800, 800);
   background(30);
   dots()
+  xdirection = random() * 2; // Left or Right
+  ydirection = random() * 2; // Top to Bottom
 }
 
 function draw() {
   noStroke()
   fill(225)
   
+  
   for(var i = 0; i < points.length; i++){
-    ellipse(points[i].x, points[i].y, 3)
+    ellipse(points[i].x, points[i].y, random([2], [10]))
     
-    var r = map(points [i].x, 0, width, 50, 255)
-    var g = map(points[i].y, 0, height, 50, 255)
-    var b = map(points[i].x, 0, width, 255, 50)
-    
-    fill(r, g, b)
+    let fillcolorred = random(0,255)
+      let fillcolorgreen = random(0)
+        let fillcolorblue = random(100,150)
+      //I've made some changes with the color, so hope it works with you!
+
+        fill( fillcolorred,fillcolorgreen,fillcolorblue)
     }
+  for (var z = 0; z < 20; z++){
+    map(sin(frameCount), -1, 1, 0, 255)
+    map(z, 0, 20, 0 ,255)
+    map(cos(frameCount), -1, 1, 255, 0)       
+    }  
+  //Ensure that the ball doesn't jump out of the boundary 
+  if (xpos < 25 || xpos >=width - 25)
+  {
+    xdirection *= -1 
+  }
+  if (ypos < 25 || ypos >=height - 25)
+  {
+    ydirection *= -1 
+  }
+  xpos = xpos + 4 * xdirection;
+  ypos = ypos + 4 * ydirection;
+  circle(xpos, ypos, 50);
 }
 
 function dots(){
@@ -31,6 +55,3 @@ function dots(){
         }
     }
 }
-
-
-  
