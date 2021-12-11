@@ -4,6 +4,15 @@ function setup() {
   createCanvas(800, 800);
   background(30);
   dots()
+   basecolor1 = color(120,0,120);
+  basecolor2 = color(0,0,120);
+
+  for(let a=0; a<height; a++){
+  m = map(a,0,height,0,1);
+  let background = lerpColor(basecolor1, basecolor2,m)
+  stroke(background);
+  line(0,a,width,a);
+  }
 }
 
 function draw() {
